@@ -141,7 +141,7 @@ const ContactSection = () => {
               <p className="text-gray-300 mb-4">
                 Book a 30-minute consultation to discuss your digital transformation goals.
               </p>
-              <Button variant="outline" className="border-white/20 hover:bg-white/10 text-emerald-500">
+              <Button variant="outline" className="border-white/20 text-orange-50 bg-electric-blue">
                 Schedule Call
               </Button>
             </div>
