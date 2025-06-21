@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -6,7 +5,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-
 const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -14,16 +12,17 @@ const ContactSection = () => {
     company: "",
     message: ""
   });
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Simple form validation
     if (!formData.name || !formData.email || !formData.message) {
       toast({
         title: "Please fill in all required fields",
-        variant: "destructive",
+        variant: "destructive"
       });
       return;
     }
@@ -32,22 +31,24 @@ const ContactSection = () => {
     console.log("Form submitted:", formData);
     toast({
       title: "Message sent successfully!",
-      description: "We'll get back to you within 24 hours.",
+      description: "We'll get back to you within 24 hours."
     });
-    
-    // Reset form
-    setFormData({ name: "", email: "", company: "", message: "" });
-  };
 
+    // Reset form
+    setFormData({
+      name: "",
+      email: "",
+      company: "",
+      message: ""
+    });
+  };
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
-
-  return (
-    <section id="contact" className="py-20 bg-navy-900 text-white">
+  return <section id="contact" className="py-20 bg-navy-900 text-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -67,50 +68,22 @@ const ContactSection = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium mb-2">Name *</label>
-                    <Input
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
-                      placeholder="Your full name"
-                      required
-                    />
+                    <Input name="name" value={formData.name} onChange={handleInputChange} className="bg-white/10 border-white/20 text-white placeholder:text-gray-400" placeholder="Your full name" required />
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2">Email *</label>
-                    <Input
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
-                      placeholder="your@email.com"
-                      required
-                    />
+                    <Input name="email" type="email" value={formData.email} onChange={handleInputChange} className="bg-white/10 border-white/20 text-white placeholder:text-gray-400" placeholder="your@email.com" required />
                   </div>
                 </div>
                 
                 <div>
                   <label className="block text-sm font-medium mb-2">Company</label>
-                  <Input
-                    name="company"
-                    value={formData.company}
-                    onChange={handleInputChange}
-                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
-                    placeholder="Your company name"
-                  />
+                  <Input name="company" value={formData.company} onChange={handleInputChange} className="bg-white/10 border-white/20 text-white placeholder:text-gray-400" placeholder="Your company name" />
                 </div>
                 
                 <div>
                   <label className="block text-sm font-medium mb-2">Message *</label>
-                  <Textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 min-h-[120px]"
-                    placeholder="Tell us about your project and goals..."
-                    required
-                  />
+                  <Textarea name="message" value={formData.message} onChange={handleInputChange} className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 min-h-[120px]" placeholder="Tell us about your project and goals..." required />
                 </div>
                 
                 <Button type="submit" className="w-full bg-primary hover:bg-blue-600 text-white py-3 rounded-xl">
@@ -168,15 +141,13 @@ const ContactSection = () => {
               <p className="text-gray-300 mb-4">
                 Book a 30-minute consultation to discuss your digital transformation goals.
               </p>
-              <Button variant="outline" className="border-white/20 text-white hover:bg-white/10">
+              <Button variant="outline" className="border-white/20 hover:bg-white/10 text-emerald-500">
                 Schedule Call
               </Button>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ContactSection;
