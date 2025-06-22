@@ -1,1 +1,6 @@
-// File deleted to fix deployment
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
