@@ -111,7 +111,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold">Email</h4>
-                  <p className="text-gray-300">hello@nextleveldigital.com</p>
+                  <p className="text-gray-300">hello@nextldigital.com</p>
                 </div>
               </div>
               
@@ -121,7 +121,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold">Phone</h4>
-                  <p className="text-gray-300">+1 (555) 123-4567</p>
+                  <p className="text-gray-300">+92 (333) 348-7795</p>
                 </div>
               </div>
               
@@ -131,7 +131,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold">Office</h4>
-                  <p className="text-gray-300">Remote & Global</p>
+                  <p className="text-gray-300">KDA Overseas Bungalows, Karachi | Remote &amp; Global</p>
                 </div>
               </div>
             </div>
