@@ -112,33 +112,33 @@ const HomePageLayout6 = () => {
   const whyChooseReasons = [
     {
       icon: Award,
-      title: "Proven Track Record",
-      description: "Over 500+ successful projects delivered with measurable results"
-    },
-    {
-      icon: Users,
-      title: "Expert Team",
-      description: "Skilled professionals with years of experience in digital solutions"
-    },
-    {
-      icon: Zap,
-      title: "AI-Powered Solutions",
-      description: "Cutting-edge AI technology integrated into all our services"
-    },
-    {
-      icon: Shield,
-      title: "24/7 Support",
-      description: "Round-the-clock support to ensure your business never stops"
+      title: "Industry Expertise",
+      description: "Deep understanding across 200+ industries with proven strategies that work"
     },
     {
       icon: TrendingUp,
-      title: "Results-Driven",
-      description: "Focus on ROI and measurable business growth outcomes"
+      title: "Data-Driven Results",
+      description: "Every decision backed by comprehensive analytics and performance metrics"
     },
     {
-      icon: Lightbulb,
-      title: "Innovation First",
-      description: "Always staying ahead with the latest technology trends"
+      icon: Users,
+      title: "Dedicated Support",
+      description: "Assigned account managers and 24/7 support across all global offices"
+    },
+    {
+      icon: Zap,
+      title: "Cutting-Edge Technology",
+      description: "Latest AI and automation tools integrated into all our service offerings"
+    },
+    {
+      icon: Shield,
+      title: "Proven Track Record",
+      description: "28-year history with thousands of successful campaigns and satisfied clients"
+    },
+    {
+      icon: Globe,
+      title: "Global Reach",
+      description: "Local expertise with global scale across 5 countries and multiple time zones"
     }
   ];
 
@@ -219,8 +219,54 @@ const HomePageLayout6 = () => {
         </div>
       </header>
 
+      {/* Hero Section from Layout 2 */}
+      <section className="pt-32 pb-20 bg-gradient-to-br from-navy-900 via-blue-900 to-purple-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20"></div>
+        
+        <div className="container mx-auto px-6 relative">
+          <div className="text-center max-w-4xl mx-auto">
+            <div className="flex justify-center items-center space-x-2 mb-8">
+              <Badge className="bg-blue-500/20 text-blue-200 border-blue-400/30">
+                <Globe className="w-3 h-3 mr-1" />
+                5 Global Offices
+              </Badge>
+              <Badge className="bg-purple-500/20 text-purple-200 border-purple-400/30">
+                500+ Projects Delivered
+              </Badge>
+              <Badge className="bg-green-500/20 text-green-200 border-green-400/30">
+                AI-Powered Solutions
+              </Badge>
+            </div>
+
+            <h1 className="text-5xl lg:text-7xl font-bold mb-8 leading-tight">
+              Enterprise Digital
+              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent block">
+                Transformation
+              </span>
+            </h1>
+
+            <p className="text-xl lg:text-2xl text-gray-300 mb-12 leading-relaxed max-w-3xl mx-auto">
+              Your global partner for AI-driven digital marketing, development, and automation solutions. 
+              Trusted by industry leaders across 5 continents.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-10 py-4 rounded-full text-lg font-medium group">
+                <Calendar className="w-5 h-5 mr-2" />
+                Start Your Transformation
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button variant="outline" className="border-2 border-white/30 text-white hover:bg-white/10 hover:text-white px-10 py-4 rounded-full text-lg">
+                <Play className="w-5 h-5 mr-2" />
+                Watch Our Story
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Stats Section */}
-      <section className="pt-32 pb-8 bg-white">
+      <section className="py-12 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
@@ -357,28 +403,45 @@ const HomePageLayout6 = () => {
         </div>
       </section>
 
-      {/* Why Choose Next Level Digital */}
+      {/* Why Choose Next Level Digital - Updated to match live website */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-navy-900 mb-6">
-              Why Choose Next Level Digital
+              Why Choose Next Level Digital?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We combine innovation, expertise, and dedication to deliver exceptional results for your business.
+              We combine deep industry expertise with cutting-edge technology to deliver exceptional results for your business.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {whyChooseReasons.map((reason, index) => (
               <div key={reason.title} className="text-center group">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                  <reason.icon className="w-8 h-8 text-white" />
+                <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                  <reason.icon className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-navy-900 mb-4">{reason.title}</h3>
-                <p className="text-gray-600">{reason.description}</p>
+                <h3 className="text-2xl font-bold text-navy-900 mb-4">{reason.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{reason.description}</p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-16 text-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-blue-600 mb-2">28+</div>
+                <div className="text-gray-600">Years of Experience</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-purple-600 mb-2">1000+</div>
+                <div className="text-gray-600">Happy Clients</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-green-600 mb-2">200+</div>
+                <div className="text-gray-600">Industries Served</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
