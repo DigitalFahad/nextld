@@ -1,7 +1,7 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import PreviewNav from "./PreviewNav";
 import { 
   ArrowRight, 
   Globe, 
@@ -68,6 +68,7 @@ const HomePageLayout1 = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <PreviewNav />
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200">
         <div className="container mx-auto px-6 py-4">
