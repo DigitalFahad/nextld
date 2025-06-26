@@ -23,10 +23,21 @@ import {
   BarChart3,
   Briefcase,
   Quote,
-  Play
+  Play,
+  Menu,
+  X
 } from "lucide-react";
+import { useState } from "react";
 
 const HomePageLayout2 = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const navItems = [
+    { name: "Services", href: "#services" },
+    { name: "About", href: "#about" },
+    { name: "Contact", href: "#contact" },
+  ];
+
   const coreServices = [
     {
       icon: Code,
@@ -56,15 +67,6 @@ const HomePageLayout2 = () => {
       stats: "300% Lead Quality Boost",
       color: "from-orange-500 to-red-600"
     }
-  ];
-
-  const clientLogos = [
-    { name: "TechCorp", logo: "TC" },
-    { name: "Global Industries", logo: "GI" },
-    { name: "Innovation Labs", logo: "IL" },
-    { name: "Digital Solutions", logo: "DS" },
-    { name: "Enterprise Plus", logo: "EP" },
-    { name: "Future Systems", logo: "FS" }
   ];
 
   const testimonials = [
@@ -105,6 +107,37 @@ const HomePageLayout2 = () => {
     { country: "Australia", city: "Sydney", flag: "🇦🇺" }
   ];
 
+  const industryStats = [
+    {
+      title: "200+ Different Industries",
+      description: "Helping businesses across diverse sectors reach their goals"
+    },
+    {
+      title: "28-year track record",
+      description: "Proven expertise and long-term client relationships"
+    },
+    {
+      title: "1,000s of reviews",
+      description: "Trusted by thousands of satisfied clients worldwide"
+    },
+    {
+      title: "7 million+ calls generated",
+      description: "Driving real business results and lead generation"
+    },
+    {
+      title: "500+ digital experts",
+      description: "World-class team spanning multiple continents"
+    }
+  ];
+
+  const teamMembers = [
+    { name: "Sarah Johnson", role: "Strategy Director", avatar: "SJ", color: "bg-yellow-200" },
+    { name: "Ahmed Hassan", role: "AI Development Lead", avatar: "AH", color: "bg-green-200" },
+    { name: "Lisa Chen", role: "Performance Marketing Head", avatar: "LC", color: "bg-blue-200" },
+    { name: "Marcus Thompson", role: "Client Success Manager", avatar: "MT", color: "bg-purple-200" },
+    { name: "Priya Patel", role: "Technical Director", avatar: "PP", color: "bg-pink-200" }
+  ];
+
   return (
     <div className="min-h-screen bg-white">
       <PreviewNav />
@@ -122,11 +155,58 @@ const HomePageLayout2 = () => {
                 <div className="text-xs text-gray-500">Global Digital Excellence</div>
               </div>
             </div>
-            <Button className="bg-primary hover:bg-blue-600 text-white px-6 py-2 rounded-full">
-              <Calendar className="w-4 h-4 mr-2" />
-              Book Strategy Call
-            </Button>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-8">
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-gray-600 hover:text-primary transition-colors duration-200"
+                >
+                  {item.name}
+                </a>
+              ))}
+              <Button className="bg-primary hover:bg-blue-600 text-white px-6 py-2 rounded-full">
+                <Calendar className="w-4 h-4 mr-2" />
+                Book Strategy Call
+              </Button>
+            </nav>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden p-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? (
+                <X className="w-6 h-6 text-gray-600" />
+              ) : (
+                <Menu className="w-6 h-6 text-gray-600" />
+              )}
+            </button>
           </div>
+
+          {/* Mobile Navigation */}
+          {isMenuOpen && (
+            <nav className="md:hidden mt-4 pb-4 border-t border-gray-200">
+              <div className="flex flex-col space-y-4 pt-4">
+                {navItems.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="text-gray-600 hover:text-primary transition-colors duration-200"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </a>
+                ))}
+                <Button className="bg-primary hover:bg-blue-600 text-white px-6 py-2 rounded-full w-fit">
+                  <Calendar className="w-4 h-4 mr-2" />
+                  Book Strategy Call
+                </Button>
+              </div>
+            </nav>
+          )}
         </div>
       </header>
 
@@ -167,31 +247,11 @@ const HomePageLayout2 = () => {
                 Start Your Transformation
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" className="border-2 border-white/30 text-white hover:bg-white hover:text-navy-900 px-10 py-4 rounded-full text-lg">
+              <Button variant="outline" className="border-2 border-white/30 text-white hover:bg-white/10 hover:text-white px-10 py-4 rounded-full text-lg">
                 <Play className="w-5 h-5 mr-2" />
                 Watch Our Story
               </Button>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Client Logos */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-navy-900 mb-4">Trusted by Industry Leaders</h2>
-            <p className="text-gray-600">Join 500+ companies that have transformed their digital presence with us</p>
-          </div>
-          
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center opacity-60">
-            {clientLogos.map((client) => (
-              <div key={client.name} className="flex items-center justify-center">
-                <div className="w-16 h-16 bg-white rounded-lg shadow-md flex items-center justify-center border">
-                  <span className="text-xl font-bold text-gray-700">{client.logo}</span>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -236,6 +296,49 @@ const HomePageLayout2 = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Industry Expertise Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-navy-900 mb-6">
+              Unmatched Expertise <span className="text-blue-600">Driving Results</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Helping businesses across diverse industries reach their business goals
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {industryStats.map((stat, index) => (
+              <div key={stat.title} className="text-center">
+                <div className="text-3xl font-bold text-navy-900 mb-2">
+                  {stat.title.split(' ')[0]}
+                  <span className="text-blue-600">{stat.title.split(' ').slice(1).join(' ')}</span>
+                </div>
+                <p className="text-gray-600">{stat.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-16 text-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div>
+                <h3 className="font-bold text-lg text-navy-900 mb-2">Industry SMEs</h3>
+                <p className="text-gray-600">Stay up to date and join business reviews</p>
+              </div>
+              <div>
+                <h3 className="font-bold text-lg text-navy-900 mb-2">Ongoing strategy experts</h3>
+                <p className="text-gray-600">Specialize in long-term planning towards business goals</p>
+              </div>
+              <div>
+                <h3 className="font-bold text-lg text-navy-900 mb-2">Channel-specific experts</h3>
+                <p className="text-gray-600">Train and experiment to deliver proactive ideas for our clients</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -291,6 +394,45 @@ const HomePageLayout2 = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Meet NextLevelDigital Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <div className="flex justify-center mb-8">
+              <div className="flex -space-x-4">
+                {teamMembers.map((member, index) => (
+                  <div key={member.name} className={`w-20 h-20 ${member.color} rounded-full flex items-center justify-center border-4 border-white`}>
+                    <span className="text-lg font-bold text-gray-700">{member.avatar}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="text-blue-600">Meet NextLevelDigital</span>
+            </h2>
+            
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-8">
+              Your world-class, tech-enabled marketing agency with over{" "}
+              <span className="text-blue-600 font-bold">3 million</span> hours of combined expertise.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <div className="flex-1 max-w-md">
+                <input 
+                  type="text" 
+                  placeholder="Enter your website" 
+                  className="w-full px-6 py-4 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-medium">
+                Get a free proposal
+              </Button>
+            </div>
           </div>
         </div>
       </section>
