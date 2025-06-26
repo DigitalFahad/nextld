@@ -36,10 +36,16 @@ const PreviewNav = () => {
               Preview Layout 5
             </Button>
           </Link>
+          <Link to="/preview-layout6">
+            <Button size="sm" className="bg-red-600 hover:bg-red-700 text-white shadow-lg">
+              <Eye className="w-4 h-4 mr-2" />
+              Preview Layout 6
+            </Button>
+          </Link>
         </>
       )}
       
-      {(location.pathname === "/preview-layout1" || location.pathname === "/preview-layout2" || location.pathname === "/preview-layout4" || location.pathname === "/preview-layout5") && (
+      {(location.pathname === "/preview-layout1" || location.pathname === "/preview-layout2" || location.pathname === "/preview-layout4" || location.pathname === "/preview-layout5" || location.pathname === "/preview-layout6") && (
         <Link to="/">
           <Button size="sm" variant="outline" className="border-gray-300 hover:bg-gray-50 bg-white shadow-lg">
             <Home className="w-4 h-4 mr-2" />
